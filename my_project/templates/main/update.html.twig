@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Change{% endblock %}
+{% block navbars %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('main')}}" >HOME</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('show')}}" tabindex="-1" aria-disabled="true">SHOW</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('add')}}">ADD</a>
+    </li>
+    <li class="nav-item  active">
+        <a class="nav-link  disabled" href="" tabindex="-1" aria-disabled="true">CHANGE <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('delete')}}">DELETE</a>
+    </li>
+{%  endblock %}
+{% block content %}
+    <div class="container bg-dark">
+        <br>
+        <br>
+        <div class="row">
+            <br>
+            <div class="col-sm">
+                <h4>Change types</h4>
+                <form action="{{ path('updated',{'id': product.id }) }}" method="post">
+                    <div class="form-group row">
+                        <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <input value="{{ product.title }}" type="text" name="title" class="form-control" id="inputTitle" placeholder="Title">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputDistance" class="col-sm-2 col-form-label">Distance</label>
+                        <div class="col-sm-10">
+                            <input value="{{ product.distance }}" type="number" name="distance" class="form-control" id="inputDistance" placeholder="Distance">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputDifficultyLevel" class="col-sm-2 col-form-label">Level</label>
+                        <div class="col-sm-10">
+                            <input value="{{ product.difficultylevel }}" type="number" name="level" class="form-control" id="inputDifficultyLevel" placeholder="Level">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPrice" class="col-sm-2 col-form-label">Price</label>
+                        <div class="col-sm-10">
+                            <input type="number" value="{{ product.price }}" name="price" class="form-control" id="inputPrice" placeholder="Price">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4"> </div>
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-primary">SAVE THIS DATA</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm">
+                <h4>How to correctly change information?</h4>
+                <p>
+                    Write the title (it must be string). Other must be number, integer not double. And after putting all
+                    info press the 'Save this data'. After saving this data you may show the information on the show page.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

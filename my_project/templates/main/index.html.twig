@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Main{% endblock %}
+{% block navbars %}
+    <li class="nav-item active">
+        <a class="nav-link disabled" href="" tabindex="-1" aria-disabled="true">HOME <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('show')}}">SHOW</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('add')}}">ADD</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('change')}}">CHANGE</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('delete')}}">DELETE</a>
+    </li>
+{%  endblock %}
+{% block content %}
+    <div class="container bg-dark">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm">
+                <h4>Show (select all)</h4>
+                <p>
+                    A SELECT statement retrieves zero or more rows from one or more database tables or database views.
+                    In most applications, SELECT is the most commonly used data manipulation language (DML) command.
+                    As SQL is a declarative programming language, SELECT queries specify a result set, but do not
+                    specify how to calculate it. The database translates the query into a "query plan" which may vary
+                    between executions, database versions and database software. This functionality is called the "query
+                    optimizer" as it is responsible for finding the best possible execution plan for the query, within
+                    applicable constraints.
+                </p>
+            </div>
+            <div class="col-sm">
+                <h4>Add (Insert into)</h4>
+                <p>
+                    The number of columns and values must be the same. If a column is not specified, the default value
+                    for the column is used. The values specified (or implied) by the INSERT statement must satisfy all
+                    the applicable constraints (such as primary keys, CHECK constraints, and NOT NULL constraints). If
+                    a syntax error occurs or if any constraints are violated, the new row is not added to the table and
+                    an error returned instead. Shorthand may also be used, taking advantage of the order of the columns
+                    when the table was created. It is not required to specify all columns in the table since any other
+                    columns will take their default value or remain null:
+                </p>
+            </div>
+            <div class="col-sm">
+                <h4>Change (Update)</h4>
+                <p>
+                    An SQL UPDATE statement changes the data of one or more records in a table. Either all the rows can
+                    be updated, or a subset may be chosen using a condition.For the UPDATE to be successful, the user
+                    must have data manipulation privileges (UPDATE privilege) on the table or column and the updated
+                    value must not conflict with all the applicable constraints (such as primary keys, unique indexes,
+                    CHECK constraints, and NOT NULL constraints).
+                </p>
+            </div>
+            <div class="col-sm">
+                <h4>Delete</h4>
+                <p>
+                    In the database structured query language (SQL), the DELETE statement removes one or more records
+                    from a table. A subset may be defined for deletion using a condition, otherwise all records are
+                    removed. Some DBMSs, like MySQL, allow deletion of rows from multiple tables with one DELETE statement
+                    (this is sometimes called multi-table DELETE). Any rows that match the WHERE condition will be removed
+                    from the table. If the WHERE clause is omitted, all rows in the table are removed. The DELETE statement
+                    should thus be used with caution.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

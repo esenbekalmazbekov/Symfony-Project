@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Delete{% endblock %}
+{% block navbars %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('main')}}">HOME </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('show')}}">SHOW</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('add')}}">ADD</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('change')}}">CHANGE</a>
+    </li>
+    <li class="nav-item disabled">
+        <a class="nav-link active" href="" tabindex="-1" aria-disabled="true">DELETE <span class="sr-only">(current)</span></a>
+    </li>
+{%  endblock %}
+{% block content %}
+    <table class="table table-hover table-dark">
+        <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Title</th>
+            <th scope="col">Distance</th>
+            <th scope="col">DifficultyLevel</th>
+            <th scope="col">Price</th>
+            <th scope="col">Select</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% set counter = 0 %}
+        {% for product in products %}
+            {% set counter = counter + 1 %}
+            <tr>
+                <th scope="row">{{ counter }}</th>
+                <td>{{ product.title }}</td>
+                <td>{{ product.distance }}</td>
+                <td>{{ product.difficultylevel }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                    <a class="text-danger" href="{{ path('deleted', {'product': product.id }) }}">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
